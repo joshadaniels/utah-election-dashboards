@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utah 2026 General — Congressional Districts</title><style>
+body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;max-width:1180px;margin:24px auto;padding:0 16px;color:#1c1c1c;background:#fafafa}
+h1{font-size:1.5em;margin-bottom:2px}.sub{color:#666;font-size:.9em;margin-bottom:16px}
+nav{margin:0 0 18px;font-size:.92em}nav a{color:#0b5fff;text-decoration:none;margin-right:16px}nav a:hover{text-decoration:underline}nav b{margin-right:16px}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.86em;margin:14px 0}
+th,td{border:1px solid #ddd;padding:7px 8px;text-align:right}
+th{background:#f0f2f5;cursor:pointer;user-select:none}th.nosort{cursor:default}
+td:first-child,th:first-child{text-align:left}
+tr:hover td{background:#f7f9fc}
+.delta{color:#2e7d4f}.neg{color:#b3261e}.small{font-size:.85em;color:#555}
+.foot{font-size:.82em;color:#555;background:#fff;border-left:4px solid #d9a441;padding:8px 12px;margin:12px 0}
+.tag{display:inline-block;font-size:.78em;font-weight:600;border-radius:4px;padding:1px 6px;margin-right:4px}
+.tag.flip{background:#fde8e8;color:#8c1d1d}.tag.close{background:#fff3cd;color:#7a5b00}
+.tag.change{background:#e2ecff;color:#1d3f8c}.tag.could{background:#e6f4ea;color:#1e6b34}
+.filters{margin:10px 0;font-size:.92em}.filters select,.filters input{font-size:.95em;padding:4px 6px;margin-right:10px}
+.hist{font-size:.82em;color:#555;background:#f4f6f8;padding:8px 10px}
+.hist td{border:none;text-align:right;padding:2px 6px}
+button.exp{background:none;border:none;color:#0b5fff;cursor:pointer;font-size:1em;padding:0}
+</style></head><body>
+<h1>Utah 2026 General — Congressional Districts</h1><nav><a href="counties.html">All Counties</a><a href="races.html">Closest Races</a><a href="cds.html">Congressional Districts</a></nav>
+<div class="sub">Utah&rsquo;s four congressional districts, from the state All-Results reports. Rebuilt Fri Nov 06, 2026 07:27 PM MST &middot; 17 releases (Nov 4&ndash;6). Click a column header to sort.</div>
+<h2>Statewide summary</h2>
+<table><tr><th>Total ballots reported statewide</th><th>Estimated outstanding statewide</th><th>Total active registered voters statewide</th><th>Turnout</th></tr>
+<tr><td>878,358</td><td>186,225</td><td>1,784,255</td><td>49.2%</td></tr></table>
+<div class="foot">Turnout = ballots reported &divide; total active registered voters statewide (1,784,255, Nov 3 voted file).
+&ldquo;Estimated outstanding&rdquo; is the sum of the counties&rsquo; yet-to-report figures (each county&rsquo;s estimated total received &minus; ballots in results).</div>
+<h2>By congressional district</h2>
+<table id="cdt"><thead><tr>
+<th onclick="sortTable('cdt',0,false)">District</th>
+<th onclick="sortTable('cdt',1,true)">Registered (active)</th>
+<th onclick="sortTable('cdt',2,true)">Ballots in results</th>
+<th onclick="sortTable('cdt',3,true)">&Delta; last release</th>
+<th onclick="sortTable('cdt',4,true)">Est. received</th>
+<th onclick="sortTable('cdt',5,true)">Est. left to report</th>
+<th onclick="sortTable('cdt',6,true)">Turnout</th></tr></thead><tbody></tbody></table>
+<div class="foot"><b>Est. left</b> is built per county, the same method as the legislative districts: each CD&rsquo;s expected total in a county is its registered voters there &times; that county&rsquo;s turnout target (estimated received &divide; active registered), minus what it has counted there — then the CDs in each county are scaled so they sum exactly to that county&rsquo;s remaining pool.
+&ldquo;Est. received&rdquo; is ballots in results + est. left (no county report exists at CD level). &ldquo;Registered&rdquo; is active registered voters as of Nov 3.</div>
+<h2>U.S. House races</h2>
+<table id="cdr"><thead><tr>
+<th onclick="sortTable('cdr',0,false)">Race</th>
+<th onclick="sortTable('cdr',1,false)">Leader</th>
+<th onclick="sortTable('cdr',2,false)">Runner-up</th>
+<th onclick="sortTable('cdr',3,true)">Margin (votes)</th>
+<th onclick="sortTable('cdr',4,true)">Margin %</th>
+<th onclick="sortTable('cdr',5,true)">Margin at first report</th>
+<th onclick="sortTable('cdr',6,true)">&Delta; margin (pp)</th>
+<th onclick="sortTable('cdr',7,false)">Leader changed?</th>
+<th onclick="sortTable('cdr',8,false)">Incumbent (party)</th>
+<th onclick="sortTable('cdr',9,false)">Status</th>
+<th onclick="sortTable('cdr',10,true)">Est. outstanding in district</th></tr></thead><tbody></tbody></table>
+<div class="foot"><b>How to read this:</b> same definitions as the Closest Legislative Races page.
+&ldquo;Could still flip&rdquo; means the trailing candidate would need under 60% of the district&rsquo;s estimated outstanding ballots to overtake
+(the district&rsquo;s outstanding from the per-county method). &ldquo;Too close&rdquo; is a margin under 2%.
+&ldquo;Flipped&rdquo; compares the leader&rsquo;s party to the party that held that district number before the 2025 congressional redraw (Moore CD1, Maloy CD2, Kennedy CD3, Owens CD4) &mdash; the redraw moved the incumbents, so this is a district-number comparison, not same-boundaries. All figures are unofficial until canvassed.</div>
+<script>
+const CDS = [{"key": "CD1", "registered": 408387, "ballots": 195805, "chg": 0, "est_received": 266665, "est_left": 70860, "turnout": 47.9}, {"key": "CD2", "registered": 438981, "ballots": 255601, "chg": 0, "est_received": 263879, "est_left": 8278, "turnout": 58.2}, {"key": "CD3", "registered": 473251, "ballots": 223385, "chg": 0, "est_received": 265385, "est_left": 42000, "turnout": 47.2}, {"key": "CD4", "registered": 464041, "ballots": 203756, "chg": 0, "est_received": 268843, "est_left": 65087, "turnout": 43.9}];
+const CD_RACES = [{"key": "CD1", "race": "U.S. House District 1", "leader": "BEN MCADAMS", "leader_party": "Democratic", "leader_votes": 139186, "second": "RILEY OWEN", "second_party": "Republican", "second_votes": 48550, "total": 194351, "margin_v": 90636, "margin_pct": 48.28, "first_margin_pct": 48.6, "margin_change_pp": -0.32, "leader_changed": false, "first_leader": "BEN MCADAMS", "incumbent": "Blake Moore", "inc_party": "Republican", "flipped": true, "could_flip": false, "dist_out": 70860, "too_close": false}, {"key": "CD2", "race": "U.S. House District 2", "leader": "BLAKE D. MOORE", "leader_party": "Republican", "leader_votes": 126711, "second": "PETER CROSBY", "second_party": "Democratic", "second_votes": 106035, "total": 252115, "margin_v": 20676, "margin_pct": 8.88, "first_margin_pct": 7.1, "margin_change_pp": 1.79, "leader_changed": false, "first_leader": "BLAKE D. MOORE", "incumbent": "Celeste Maloy", "inc_party": "Republican", "flipped": false, "could_flip": false, "dist_out": 8278, "too_close": false}, {"key": "CD3", "race": "U.S. House District 3", "leader": "CELESTE MALOY", "leader_party": "Republican", "leader_votes": 127453, "second": "KENT S. UDELL", "second_party": "Democratic", "second_votes": 76316, "total": 220214, "margin_v": 51137, "margin_pct": 25.1, "first_margin_pct": 24.12, "margin_change_pp": 0.98, "leader_changed": false, "first_leader": "CELESTE MALOY", "incumbent": "Mike Kennedy", "inc_party": "Republican", "flipped": false, "could_flip": false, "dist_out": 42000, "too_close": false}, {"key": "CD4", "race": "U.S. House District 4", "leader": "MIKE KENNEDY", "leader_party": "Republican", "leader_votes": 107278, "second": "JONNY LARSEN", "second_party": "Democratic", "second_votes": 80272, "total": 201655, "margin_v": 27006, "margin_pct": 14.4, "first_margin_pct": 11.02, "margin_change_pp": 3.38, "leader_changed": false, "first_leader": "MIKE KENNEDY", "incumbent": "Burgess Owens", "inc_party": "Republican", "flipped": false, "could_flip": false, "dist_out": 65087, "too_close": false}];
+const tb=document.querySelector('#cdt tbody');
+CDS.forEach(r=>{
+  const tr=document.createElement('tr');
+  tr.className='data';
+  tr.innerHTML=`<td><b>${r.key}</b></td>
+  <td data-v="${r.registered??-1}">${r.registered?r.registered.toLocaleString():'&mdash;'}</td>
+  <td data-v="${r.ballots??-1}">${r.ballots!=null?r.ballots.toLocaleString():'&mdash;'}</td>
+  <td data-v="${r.chg??-1}" class="${r.chg>0?'delta':''}">${r.chg==null?'&mdash;':(r.chg>0?'+':'')+r.chg.toLocaleString()}</td>
+  <td data-v="${r.est_received??-1}">${r.est_received?r.est_received.toLocaleString():'&mdash;'}</td>
+  <td data-v="${r.est_left}">~${r.est_left.toLocaleString()}</td>
+  <td data-v="${r.turnout??-1}">${r.turnout==null?'&mdash;':r.turnout+'%'}</td>`;
+  tb.appendChild(tr);
+});
+const tr2=document.querySelector('#cdr tbody');
+function cdStatusTags(r){
+  let t='';
+  if(r.flipped) t+='<span class="tag flip">FLIP</span>';
+  if(r.too_close) t+='<span class="tag close">TOO CLOSE</span>';
+  if(r.leader_changed) t+='<span class="tag change">LEADER CHANGED</span>';
+  if(r.could_flip) t+='<span class="tag could">COULD STILL FLIP</span>';
+  return t||'<span class="small">&mdash;</span>';
+}
+CD_RACES.forEach(r=>{
+  const tr=document.createElement('tr');
+  tr.className='data';
+  const d=r.margin_change_pp, dcls=d<0?'neg':(d>0?'delta':'');
+  tr.innerHTML=`<td><b>${r.race}</b></td>
+  <td>${r.leader} <span class="small">(${r.leader_party}) &mdash; ${r.leader_votes.toLocaleString()}</span></td>
+  <td>${r.second||'&mdash;'} <span class="small">${r.second_party?'('+r.second_party+')':''}${r.second_votes!=null?' &mdash; '+r.second_votes.toLocaleString():''}</span></td>
+  <td data-v="${r.margin_v}">${r.margin_v.toLocaleString()}</td>
+  <td data-v="${r.margin_pct}">${r.margin_pct.toFixed(2)}%</td>
+  <td data-v="${r.first_margin_pct}">${r.first_margin_pct.toFixed(2)}%</td>
+  <td data-v="${r.margin_change_pp}" class="${dcls}">${d>0?'+':''}${r.margin_change_pp.toFixed(2)} pp</td>
+  <td>${r.leader_changed?'Yes ('+r.first_leader+' led first)':'No'}</td>
+  <td>${r.incumbent?r.incumbent+' ('+r.inc_party+')':'&mdash;'}</td>
+  <td>${cdStatusTags(r)}</td>
+  <td data-v="${r.dist_out}">~${r.dist_out.toLocaleString()}</td>`;
+  tr2.appendChild(tr);
+});
+</script>
+
+<script>
+let sortCol=-1, sortAsc=true;
+function sortTable(id, col, numeric){
+  const t=document.getElementById(id), tb=t.tBodies[0];
+  const rows=[...tb.querySelectorAll('tr.data')];
+  if(sortCol===col){sortAsc=!sortAsc}else{sortCol=col;sortAsc=true}
+  rows.sort((a,b)=>{
+    let x=a.cells[col].dataset.v ?? a.cells[col].textContent.trim();
+    let y=b.cells[col].dataset.v ?? b.cells[col].textContent.trim();
+    if(numeric){x=parseFloat(x);y=parseFloat(y);if(isNaN(x))x=-1;if(isNaN(y))y=-1}
+    return (x<y?-1:x>y?1:0)*(sortAsc?1:-1);
+  });
+  rows.forEach(r=>tb.appendChild(r));
+  // keep history rows glued to their county row
+  rows.forEach(r=>{
+    const h=document.getElementById('hist-'+r.dataset.k);
+    if(h) tb.appendChild(h);
+  });
+}
+</script></body></html>

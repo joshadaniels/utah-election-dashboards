@@ -19,8 +19,8 @@ tr:hover td{background:#f7f9fc}
 .hist td{border:none;text-align:right;padding:2px 6px}
 button.exp{background:none;border:none;color:#0b5fff;cursor:pointer;font-size:1em;padding:0}
 </style></head><body>
-<h1>Utah 2026 General — All Counties</h1><nav><a href="index.html">Home</a><a href="ut-ballot-count-tracker.html">Ballot Count Tracker</a><a href="counties.html">All Counties</a><a href="races.html">Closest Races</a></nav>
-<div class="sub">All 29 Utah counties, from the state All-Results reports. Rebuilt Fri Nov 06, 2026 11:23 AM MST &middot; 17 releases (Nov 4&ndash;6). Click a column header to sort. Click &#9656; on a row to see that county&rsquo;s count at every release.</div>
+<h1>Utah 2026 General — All Counties</h1><nav><a href="counties.html">All Counties</a><a href="races.html">Closest Races</a><a href="cds.html">Congressional Districts</a></nav>
+<div class="sub">All 29 Utah counties, from the state All-Results reports. Rebuilt Fri Nov 06, 2026 07:27 PM MST &middot; 17 releases (Nov 4&ndash;6). Click a column header to sort. Click &#9656; on a row to see that county&rsquo;s count at every release.</div>
 <table id="ct"><thead><tr>
 <th onclick="sortTable('ct',0,false)">County</th>
 <th onclick="sortTable('ct',1,true)">Registered (active)</th>
@@ -53,7 +53,7 @@ DATA.forEach((c,i)=>{
     <td data-v="${c.est_lo}">${est}${asof}</td>
     <td data-v="${c.turnout??-1}">${c.turnout==null?'&mdash;':c.turnout+'%'}</td>
     <td data-v="${c.since_first??-1}" class="${c.since_first>0?'delta':''}">${c.since_first==null?'&mdash;':'+'+c.since_first.toLocaleString()}</td>
-    <td><button class="exp" onclick="toggleHist($16,this)">&#9656;</button></td>`;
+    <td><button class="exp" onclick="toggleHist(${i},this)">&#9656;</button></td>`;
   tb.appendChild(tr);
   const h = document.createElement('tr');
   h.id='hist-'+i; h.style.display='none';
