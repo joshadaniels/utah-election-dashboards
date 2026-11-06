@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utah 2026 General — All Counties</title><style>
+body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;max-width:1180px;margin:24px auto;padding:0 16px;color:#1c1c1c;background:#fafafa}
+h1{font-size:1.5em;margin-bottom:2px}.sub{color:#666;font-size:.9em;margin-bottom:16px}
+nav{margin:0 0 18px;font-size:.92em}nav a{color:#0b5fff;text-decoration:none;margin-right:16px}nav a:hover{text-decoration:underline}nav b{margin-right:16px}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.86em;margin:14px 0}
+th,td{border:1px solid #ddd;padding:7px 8px;text-align:right}
+th{background:#f0f2f5;cursor:pointer;user-select:none}th.nosort{cursor:default}
+td:first-child,th:first-child{text-align:left}
+tr:hover td{background:#f7f9fc}
+.delta{color:#2e7d4f}.neg{color:#b3261e}.small{font-size:.85em;color:#555}
+.foot{font-size:.82em;color:#555;background:#fff;border-left:4px solid #d9a441;padding:8px 12px;margin:12px 0}
+.tag{display:inline-block;font-size:.78em;font-weight:600;border-radius:4px;padding:1px 6px;margin-right:4px}
+.tag.flip{background:#fde8e8;color:#8c1d1d}.tag.close{background:#fff3cd;color:#7a5b00}
+.tag.change{background:#e2ecff;color:#1d3f8c}.tag.could{background:#e6f4ea;color:#1e6b34}
+.filters{margin:10px 0;font-size:.92em}.filters select,.filters input{font-size:.95em;padding:4px 6px;margin-right:10px}
+.hist{font-size:.82em;color:#555;background:#f4f6f8;padding:8px 10px}
+.hist td{border:none;text-align:right;padding:2px 6px}
+button.exp{background:none;border:none;color:#0b5fff;cursor:pointer;font-size:1em;padding:0}
+</style></head><body>
+<h1>Utah 2026 General — All Counties</h1><nav><a href="index.html">Home</a><a href="ut-ballot-count-tracker.html">Ballot Count Tracker</a><a href="counties.html">All Counties</a><a href="races.html">Closest Races</a></nav>
+<div class="sub">All 29 Utah counties, from the state All-Results reports. Rebuilt Fri Nov 06, 2026 11:02 AM MST &middot; 16 releases (Nov 4&ndash;6). Click a column header to sort. Click &#9656; on a row to see that county&rsquo;s count at every release.</div>
+<table id="ct"><thead><tr>
+<th onclick="sortTable('ct',0,false)">County</th>
+<th onclick="sortTable('ct',1,true)">Registered (active)</th>
+<th onclick="sortTable('ct',2,true)">Ballots in results</th>
+<th onclick="sortTable('ct',3,true)">&Delta; last release</th>
+<th onclick="sortTable('ct',4,true)">Est. left to report</th>
+<th onclick="sortTable('ct',5,true)">Turnout</th>
+<th onclick="sortTable('ct',6,true)">Since first report</th>
+<th class="nosort">History</th></tr></thead><tbody></tbody></table>
+<div class="foot"><b>Est. left</b> uses the tracker&rsquo;s standing method (yet to report = county&rsquo;s estimated total received &minus; ballots in results).
+Utah County (196,500 est. received) and Salt Lake County (394,882 est. received) publish that estimate, so theirs are hard numbers (marked *).
+Other counties get a range from the two known counties&rsquo; yet-to-report ratios (36.2%&ndash;45.4% of ballots already reported).
+&ldquo;Registered&rdquo; is active registered voters as of Nov 3 (state voted file). Ballots in results = max ballots-cast across contests in the state report.</div>
+<script>
+const DATA = [{"county": "Beaver County", "registered": 3847, "series": [1727, 1727, 2098, 2098, 2098, 2098, 2098, 2098, 2098, 2098, 2098, 2098, 2098, 2098, 2098, 2098], "latest": 2098, "delta": 0, "first": 1727, "since_first": 371, "est_lo": 760, "est_hi": 953, "est_hard": false, "turnout": 54.5}, {"county": "Box Elder County", "registered": 33827, "series": [16777, 16777, 19929, 19929, 19929, 19929, 19929, 19929, 19929, 19929, 19929, 19929, 19929, 19929, 19929, 19929], "latest": 19929, "delta": 0, "first": 16777, "since_first": 3152, "est_lo": 7215, "est_hi": 9052, "est_hard": false, "turnout": 58.9}, {"county": "Cache County", "registered": 70585, "series": [28306, 28306, 28306, 28306, 28306, 28306, 41550, 41550, 41550, 41550, 41550, 41681, 41681, 41681, 41681, 41681], "latest": 41681, "delta": 0, "first": 28306, "since_first": 13375, "est_lo": 15090, "est_hi": 18931, "est_hard": false, "turnout": 59.1}, {"county": "Carbon County", "registered": 10911, "series": [5756, 5756, 5756, 5756, 5756, 5756, 5756, 5756, 5756, 5756, 6643, 6643, 6643, 6643, 6643, 6643], "latest": 6643, "delta": 0, "first": 5756, "since_first": 887, "est_lo": 2405, "est_hi": 3017, "est_hard": false, "turnout": 60.9}, {"county": "Daggett County", "registered": 688, "series": [354, 354, 354, 354, 354, 354, 354, 354, 354, 384, 384, 384, 384, 384, 384, 384], "latest": 384, "delta": 0, "first": 354, "since_first": 30, "est_lo": 139, "est_hi": 174, "est_hard": false, "turnout": 55.8}, {"county": "Davis County", "registered": 200033, "series": [86932, 86932, 86932, 96591, 96591, 96591, 96591, 96591, 96591, 96591, 96591, 96591, 115308, 115308, 115308, 115308], "latest": 115308, "delta": 0, "first": 86932, "since_first": 28376, "est_lo": 41745, "est_hi": 52373, "est_hard": false, "turnout": 57.6}, {"county": "Duchesne County", "registered": 10440, "series": [4082, 4082, 5249, 5249, 5249, 5249, 5249, 5249, 5249, 5249, 5249, 5249, 5249, 5249, 5249, 5249], "latest": 5249, "delta": 0, "first": 4082, "since_first": 1167, "est_lo": 1900, "est_hi": 2384, "est_hard": false, "turnout": 50.3}, {"county": "Emery County", "registered": 5754, "series": [2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963, 2963], "latest": 2963, "delta": 0, "first": 2963, "since_first": 0, "est_lo": 1073, "est_hi": 1346, "est_hard": false, "turnout": 51.5}, {"county": "Garfield County", "registered": 3250, "series": [2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059, 2059], "latest": 2059, "delta": 0, "first": 2059, "since_first": 0, "est_lo": 745, "est_hi": 935, "est_hard": false, "turnout": 63.4}, {"county": "Grand County", "registered": 5873, "series": [4584, 4584, 4584, 4584, 4584, 4584, 4584, 4584, 4584, 4584, 4584, 4625, 4625, 4625, 4625, 4625], "latest": 4625, "delta": 0, "first": 4584, "since_first": 41, "est_lo": 1674, "est_hi": 2101, "est_hard": false, "turnout": 78.8}, {"county": "Iron County", "registered": 32827, "series": [14149, 14149, 15849, 15849, 15849, 15849, 15849, 15849, 15849, 15849, 15849, 17611, 17611, 17611, 17611, 17611], "latest": 17611, "delta": 0, "first": 14149, "since_first": 3462, "est_lo": 6376, "est_hi": 7999, "est_hard": false, "turnout": 53.6}, {"county": "Juab County", "registered": 7677, "series": [3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738, 3738], "latest": 3738, "delta": 0, "first": 3738, "since_first": 0, "est_lo": 1353, "est_hi": 1698, "est_hard": false, "turnout": 48.7}, {"county": "Kane County", "registered": 5113, "series": [3111, 3111, 3357, 3357, 3357, 3357, 3357, 3357, 3357, 3357, 3357, 3391, 3391, 3391, 3391, 3391], "latest": 3391, "delta": 0, "first": 3111, "since_first": 280, "est_lo": 1228, "est_hi": 1540, "est_hard": false, "turnout": 66.3}, {"county": "Millard County", "registered": 7264, "series": [3050, 3050, 4049, 4049, 4049, 4049, 4049, 4049, 4049, 4049, 4049, 4049, 4049, 4049, 4049, 4049], "latest": 4049, "delta": 0, "first": 3050, "since_first": 999, "est_lo": 1466, "est_hi": 1839, "est_hard": false, "turnout": 55.7}, {"county": "Morgan County", "registered": 8313, "series": [2805, 2805, 2805, 4611, 4611, 4611, 4611, 4611, 4611, 4611, 4611, 4611, 4611, 4611, 4611, 4611], "latest": 4611, "delta": 0, "first": 2805, "since_first": 1806, "est_lo": 1669, "est_hi": 2094, "est_hard": false, "turnout": 55.5}, {"county": "Piute County", "registered": 1112, "series": [737, 737, 737, 737, 737, 737, 737, 737, 737, 737, 737, 737, 737, 737, 737, 737], "latest": 737, "delta": 0, "first": 737, "since_first": 0, "est_lo": 267, "est_hi": 335, "est_hard": false, "turnout": 66.3}, {"county": "Rich County", "registered": 1591, "series": [1227, 1227, 1268, 1268, 1268, 1268, 1268, 1268, 1268, 1268, 1268, 1268, 1268, 1268, 1268, 1268], "latest": 1268, "delta": 0, "first": 1227, "since_first": 41, "est_lo": 459, "est_hi": 576, "est_hard": false, "turnout": 79.7}, {"county": "Salt Lake County", "registered": 604683, "series": [266610, 266610, 266610, 266610, 266610, 266610, 266610, 266610, 266610, 266610, 266610, 266610, 289921, 289921, 289921, 289921], "latest": 289921, "delta": 0, "first": 266610, "since_first": 23311, "est_lo": 104961, "est_hi": 104961, "est_hard": true, "turnout": 47.9}, {"county": "San Juan County", "registered": 8095, "series": [966, 966, 966, 966, 966, 1429, 1429, 1429, 1429, 1429, 1987, 1987, 2503, 2503, 2503, 2503], "latest": 2503, "delta": 0, "first": 966, "since_first": 1537, "est_lo": 906, "est_hi": 1137, "est_hard": false, "turnout": 30.9}, {"county": "Sanpete County", "registered": 15536, "series": [5842, 5842, 7669, 7669, 7669, 7669, 7669, 7669, 7669, 8580, 8580, 8580, 8580, 8580, 8580, 8580], "latest": 8580, "delta": 0, "first": 5842, "since_first": 2738, "est_lo": 3106, "est_hi": 3897, "est_hard": false, "turnout": 55.2}, {"county": "Sevier County", "registered": 12493, "series": [5408, 5408, 5408, 5408, 5408, 5408, 5408, 5408, 5408, 5408, 5408, 5408, 6293, 6293, 6293, 6293], "latest": 6293, "delta": 0, "first": 5408, "since_first": 885, "est_lo": 2278, "est_hi": 2858, "est_hard": false, "turnout": 50.4}, {"county": "Summit County", "registered": 29388, "series": [8494, 8494, 10831, 10831, 10831, 10831, 10831, 10831, 10831, 10831, 10831, 10831, 12772, 12772, 12772, 12772], "latest": 12772, "delta": 0, "first": 8494, "since_first": 4278, "est_lo": 4624, "est_hi": 5801, "est_hard": false, "turnout": 43.5}, {"county": "Tooele County", "registered": 41900, "series": [15019, 15019, 15019, 20859, 20859, 20859, 20859, 20859, 20859, 20859, 20859, 21033, 21033, 21033, 21033, 21033], "latest": 21033, "delta": 0, "first": 15019, "since_first": 6014, "est_lo": 7615, "est_hi": 9553, "est_hard": false, "turnout": 50.2}, {"county": "Uintah County", "registered": 18088, "series": [9430, 9430, 9430, 9430, 9430, 9430, 9430, 9430, 9430, 9430, 9430, 9467, 9467, 9467, 9467, 9467], "latest": 9467, "delta": 0, "first": 9430, "since_first": 37, "est_lo": 3427, "est_hi": 4300, "est_hard": false, "turnout": 52.3}, {"county": "Utah County", "registered": 374875, "series": [104818, 104818, 110036, 110036, 110036, 110036, 110036, 110036, 110036, 110036, 110036, 110036, 110036, 135126, 135126, 135126], "latest": 135126, "delta": 0, "first": 104818, "since_first": 30308, "est_lo": 61374, "est_hi": 61374, "est_hard": true, "turnout": 36.0}, {"county": "Wasatch County", "registered": 21951, "series": [10761, 10761, 13436, 13436, 13436, 13436, 13436, 13436, 13436, 13436, 13436, 13436, 13436, 13436, 13436, 13436], "latest": 13436, "delta": 0, "first": 10761, "since_first": 2675, "est_lo": 4864, "est_hi": 6103, "est_hard": false, "turnout": 61.2}, {"county": "Washington County", "registered": 113079, "series": [43744, 43744, 43744, 43744, 51708, 51708, 51708, 51708, 51708, 51708, 51708, 51708, 64091, 64091, 64091, 64091], "latest": 64091, "delta": 0, "first": 43744, "since_first": 20347, "est_lo": 23203, "est_hi": 29110, "est_hard": false, "turnout": 56.7}, {"county": "Wayne County", "registered": 1835, "series": [1109, 1109, 1109, 1109, 1109, 1109, 1109, 1109, 1109, 1109, 1109, 1109, 1213, 1213, 1213, 1213], "latest": 1213, "delta": 0, "first": 1109, "since_first": 104, "est_lo": 439, "est_hi": 551, "est_hard": false, "turnout": 66.1}, {"county": "Weber County", "registered": 133227, "series": [62035, 62035, 62035, 62035, 62035, 77579, 77579, 77579, 77579, 77579, 77579, 77579, 77579, 77579, 77579, 77579], "latest": 77579, "delta": 0, "first": 62035, "since_first": 15544, "est_lo": 28086, "est_hi": 35236, "est_hard": false, "turnout": 58.2}];
+const LABELS = ["Nov 4 12:00pm", "Nov 4 2:05pm", "Nov 4 6:08pm", "Nov 4 7:08pm", "Nov 4 8:07pm", "Nov 4 10:10pm", "Nov 5 4:06am", "Nov 5 7:07am", "Nov 5 9:06am", "Nov 5 11:05am", "Nov 5 1:05pm", "Nov 5 6:05pm", "Nov 5 8:05pm", "Nov 5 10:05pm", "Nov 6 5:05am", "Nov 6 8:07am"];
+const tb = document.querySelector('#ct tbody');
+DATA.forEach((c,i)=>{
+  const est = c.est_hard ? c.est_lo.toLocaleString()+'*' : c.est_lo.toLocaleString()+'&ndash;'+c.est_hi.toLocaleString();
+  const tr = document.createElement('tr');
+  tr.className='data'; tr.dataset.k=i;
+  tr.innerHTML = `<td>${c.county}</td>
+    <td data-v="${c.registered??-1}">${c.registered?c.registered.toLocaleString():'&mdash;'}</td>
+    <td data-v="${c.latest}">${c.latest.toLocaleString()}</td>
+    <td data-v="${c.delta??-1}" class="${c.delta>0?'delta':''}">${c.delta==null?'&mdash;':(c.delta>0?'+':'')+c.delta.toLocaleString()}</td>
+    <td data-v="${c.est_lo}">${est}</td>
+    <td data-v="${c.turnout??-1}">${c.turnout==null?'&mdash;':c.turnout+'%'}</td>
+    <td data-v="${c.since_first??-1}" class="${c.since_first>0?'delta':''}">${c.since_first==null?'&mdash;':'+'+c.since_first.toLocaleString()}</td>
+    <td><button class="exp" onclick="toggleHist($15,this)">&#9656;</button></td>`;
+  tb.appendChild(tr);
+  const h = document.createElement('tr');
+  h.id='hist-'+i; h.style.display='none';
+  h.innerHTML = `<td colspan="8"><div class="hist">${LABELS.map((l,j)=>`${l}: <b>${c.series[j]==null?'&mdash;':c.series[j].toLocaleString()}</b>`).join(' &nbsp;&middot;&nbsp; ')}</div></td>`;
+  tb.appendChild(h);
+});
+function toggleHist(i,btn){
+  const h=document.getElementById('hist-'+i);
+  const show=h.style.display==='none';
+  h.style.display=show?'':'none';
+  btn.innerHTML=show?'&#9662;':'&#9656;';
+}
+</script>
+
+<script>
+let sortCol=-1, sortAsc=true;
+function sortTable(id, col, numeric){
+  const t=document.getElementById(id), tb=t.tBodies[0];
+  const rows=[...tb.querySelectorAll('tr.data')];
+  if(sortCol===col){sortAsc=!sortAsc}else{sortCol=col;sortAsc=true}
+  rows.sort((a,b)=>{
+    let x=a.cells[col].dataset.v ?? a.cells[col].textContent.trim();
+    let y=b.cells[col].dataset.v ?? b.cells[col].textContent.trim();
+    if(numeric){x=parseFloat(x);y=parseFloat(y);if(isNaN(x))x=-1;if(isNaN(y))y=-1}
+    return (x<y?-1:x>y?1:0)*(sortAsc?1:-1);
+  });
+  rows.forEach(r=>tb.appendChild(r));
+  // keep history rows glued to their county row
+  rows.forEach(r=>{
+    const h=document.getElementById('hist-'+r.dataset.k);
+    if(h) tb.appendChild(h);
+  });
+}
+</script></body></html>

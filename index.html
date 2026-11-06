@@ -1,40 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
+<!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Utah Election Results Dashboards</title>
-<style>
-  body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; color: #1a1a1a; background: #f7f7f7; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px; }
-  h1 { font-size: 28px; margin: 0 0 6px; }
-  p.sub { color: #555; margin: 0 0 28px; }
-  .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px 22px; margin-bottom: 16px; }
-  .card h2 { font-size: 19px; margin: 0 0 6px; }
-  .card h2 a { color: #0b5fff; text-decoration: none; }
-  .card h2 a:hover { text-decoration: underline; }
-  .card p { margin: 0; color: #444; line-height: 1.5; }
-  .meta { font-size: 13px; color: #777; margin-top: 8px; }
-  footer { font-size: 13px; color: #777; margin-top: 32px; line-height: 1.5; }
-</style>
-</head>
-<body>
-<div class="wrap">
-  <h1>Utah Election Results Dashboards</h1>
-  <p class="sub">Unofficial tracking dashboards built from Utah&rsquo;s official election results.</p>
-
-  <div class="card">
-    <h2><a href="ut-ballot-count-tracker.html">Utah 2026 General &mdash; Ballot Counting Progress</a></h2>
-    <p>Ballots counted in the official results report, by county &mdash; statewide total, top 5 counties, CD4, SD11, and HD61 &mdash; with a column for each results release and an estimate of ballots yet to report.</p>
-    <div class="meta">Updated hourly while counting continues. Last update: Nov 6, 2026, 8:05am MST.</div>
-  </div>
-
-  <footer>
-    Data source: Utah Lieutenant Governor&rsquo;s election results site
-    (electionresults.utah.gov) and county clerk reconciliation pages.
-    These dashboards are unofficial and not affiliated with the State of Utah
-    or any county. Results are unofficial until canvassed.
-  </footer>
-</div>
-</body>
-</html>
+<title>Utah Election Results Dashboards</title><style>
+body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;max-width:1180px;margin:24px auto;padding:0 16px;color:#1c1c1c;background:#fafafa}
+h1{font-size:1.5em;margin-bottom:2px}.sub{color:#666;font-size:.9em;margin-bottom:16px}
+nav{margin:0 0 18px;font-size:.92em}nav a{color:#0b5fff;text-decoration:none;margin-right:16px}nav a:hover{text-decoration:underline}nav b{margin-right:16px}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.86em;margin:14px 0}
+th,td{border:1px solid #ddd;padding:7px 8px;text-align:right}
+th{background:#f0f2f5;cursor:pointer;user-select:none}th.nosort{cursor:default}
+td:first-child,th:first-child{text-align:left}
+tr:hover td{background:#f7f9fc}
+.delta{color:#2e7d4f}.neg{color:#b3261e}.small{font-size:.85em;color:#555}
+.foot{font-size:.82em;color:#555;background:#fff;border-left:4px solid #d9a441;padding:8px 12px;margin:12px 0}
+.tag{display:inline-block;font-size:.78em;font-weight:600;border-radius:4px;padding:1px 6px;margin-right:4px}
+.tag.flip{background:#fde8e8;color:#8c1d1d}.tag.close{background:#fff3cd;color:#7a5b00}
+.tag.change{background:#e2ecff;color:#1d3f8c}.tag.could{background:#e6f4ea;color:#1e6b34}
+.filters{margin:10px 0;font-size:.92em}.filters select,.filters input{font-size:.95em;padding:4px 6px;margin-right:10px}
+.hist{font-size:.82em;color:#555;background:#f4f6f8;padding:8px 10px}
+.hist td{border:none;text-align:right;padding:2px 6px}
+button.exp{background:none;border:none;color:#0b5fff;cursor:pointer;font-size:1em;padding:0}
+</style></head><body>
+<h1>Utah Election Results Dashboards</h1>
+<p class="sub">Unofficial tracking dashboards built from Utah&rsquo;s official election results. Rebuilt Fri Nov 06, 2026 11:02 AM MST.</p>
+<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
+<h2 style="margin:0 0 6px;font-size:19px"><a href="ut-ballot-count-tracker.html" style="color:#0b5fff;text-decoration:none">Utah 2026 General &mdash; Ballot Counting Progress</a></h2>
+<p style="margin:0;color:#444;line-height:1.5">Ballots counted in the official results report &mdash; statewide total, top 5 counties, CD4, SD11, and HD61 &mdash; with a column for each results release and an estimate of ballots yet to report.</p></div>
+<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
+<h2 style="margin:0 0 6px;font-size:19px"><a href="counties.html" style="color:#0b5fff;text-decoration:none">All Counties &mdash; Ballots &amp; Outstanding Estimates</a></h2>
+<p style="margin:0;color:#444;line-height:1.5">All 29 Utah counties, sortable: ballots in results, change since the last release, estimated ballots left to report, and turnout. Expand any county to see its count at every release.</p></div>
+<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
+<h2 style="margin:0 0 6px;font-size:19px"><a href="races.html" style="color:#0b5fff;text-decoration:none">Closest Legislative Races</a></h2>
+<p style="margin:0;color:#444;line-height:1.5">Closest Utah State House &amp; Senate races, sortable and filterable: leader and margin now vs the first report, margin change over updates, and flags for party flips, leader changes, and races that could still flip on outstanding ballots.</p></div>
+<footer style="font-size:13px;color:#777;margin-top:32px;line-height:1.5">
+Data source: Utah Lieutenant Governor&rsquo;s election results site (electionresults.utah.gov) and county clerk reconciliation pages.
+These dashboards are unofficial and not affiliated with the State of Utah or any county. Results are unofficial until canvassed.
+</footer></body></html>
