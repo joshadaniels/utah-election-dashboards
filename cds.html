@@ -97,7 +97,7 @@ function cdFlipCell(r){
   if(!r.flip_f || r.flip_f.f_needed==null) return '<span class="small">&mdash;</span>';
   const f=r.flip_f;
   const pct=x=>x==null?'&mdash;':(x*100).toFixed(1)+'%';
-  return `<span title="Needs ${pct(f.f_needed)} of uncounted; expected ${pct(f.f_exp)}; plausible max ${pct(f.f_hi)}${f.candidate_driven?' (candidate-driven: counted share used)':''}">needs ${pct(f.f_needed)} &middot; exp ${pct(f.f_exp)} &middot; max ${pct(f.f_hi)}</span>`;
+  return `<span title="Needs ${pct(f.f_needed)} of uncounted; expected ${pct(f.f_exp)}; plausible max ${pct(f.f_hi)}${f.candidate_driven?' (candidate-driven: counted share used)':''}">needs ${pct(f.f_needed)}<br>exp ${pct(f.f_exp)}<br>max ${pct(f.f_hi)}</span>`;
 }
 CD_RACES.forEach(r=>{
   const tr=document.createElement('tr');
