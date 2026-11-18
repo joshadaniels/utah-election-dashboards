@@ -1,47 +1,104 @@
-<!DOCTYPE html><html><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Utah 2026 General — Closest Legislative Contests</title><style>
-body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;max-width:1180px;margin:24px auto;padding:0 16px;color:#1c1c1c;background:#fafafa}
-h1{font-size:1.5em;margin-bottom:2px}.sub{color:#666;font-size:.9em;margin-bottom:16px}
-nav{margin:0 0 18px;font-size:.92em}nav a{color:#0b5fff;text-decoration:none;margin-right:16px}nav a:hover{text-decoration:underline}nav b{margin-right:16px}
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Utah 2026 General — Closest Legislative Contests — Political Data</title><meta name="description" content="Utah 2026 general election ballot counting — live results, per-release history, and district-level detail from official state sources."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{--crimson:#9A1220;--navy:#265289;--deep:#022553;--ink:#1b2432;--muted:#5b6572;--line:#e3e6ea;--card:#f7f8fa}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+a{color:var(--navy)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{background:#fff}
+.topbar{display:flex;align-items:center;gap:18px;padding:16px 0}
+.logo{height:64px;width:auto;display:block}
+.vdiv{width:1px;height:46px;background:var(--line);flex:0 0 auto}
+.product{font-family:Cinzel,Georgia,serif;font-size:24px;line-height:1.1;margin:0;font-weight:600;color:var(--deep)}
+.product-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.navstrip{background:var(--deep)}
+nav{display:flex;gap:4px;padding:8px 0;align-items:center;flex-wrap:wrap}
+nav a,.dropbtn{color:#fff;text-decoration:none;font-size:14px;font-weight:500;padding:8px 12px;border-radius:6px;background:none;border:0;cursor:pointer;font-family:inherit}
+nav a:hover,.dropbtn:hover{background:rgba(255,255,255,.12)}
+nav a.active{background:rgba(255,255,255,.18);font-weight:600}
+.dropdown{position:relative}
+.menu{display:none;position:absolute;left:0;top:100%;min-width:340px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 32px rgba(2,37,83,.18);padding:8px;z-index:1000}
+.dropdown.open .menu{display:block}
+.menu a{display:flex;justify-content:space-between;gap:16px;color:var(--ink);padding:10px 12px;border-radius:8px}
+.menu a:hover{background:var(--card)}
+.menu .st{font-size:12px;color:var(--muted);white-space:nowrap}
+.menu .st.live{color:var(--crimson);font-weight:600}
+h1.page-title{font-family:Cinzel,Georgia,serif;font-size:30px;line-height:1.2;margin:28px 0 4px;font-weight:600;color:var(--deep)}
+h2{font-family:Cinzel,Georgia,serif;font-size:21px;margin:30px 0 8px;color:var(--deep)}
+h3{font-size:16px;margin:18px 0 6px}
+.sub{color:var(--muted);font-size:.92em;margin-bottom:16px}
+.rule{width:64px;height:4px;background:var(--crimson);border:0;margin:0 0 16px}
+.hero{background:var(--deep);color:#fff;border-radius:12px;padding:22px 26px;margin:18px 0}
+.hero .v{font-size:2.6em;font-weight:700;line-height:1.1}
+.hero .l{font-size:.98em;opacity:.92;margin-top:4px}
+.hero .prog{font-size:.86em;opacity:.85;margin-top:10px;line-height:1.6}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.statgrid.six{grid-template-columns:repeat(3,1fr)}
+.svgwrap{overflow-x:auto}.svgwrap svg{display:block}
+.statcard{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:#fff}
+.statcard .k{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.statcard .v{font-size:1.7em;font-weight:700;margin-top:2px}
+.statcard .v2{font-size:1.15em;font-weight:700;margin-top:6px}
+.statcard .v .pct{font-size:.58em;font-weight:600;color:var(--muted)}
+.statcard .d{font-size:13px;color:var(--muted);margin-top:2px}
+.cdrow{display:flex;justify-content:space-between;gap:10px;padding:2px 8px;border-radius:4px;font-size:14px}
+.cdrow.sel{background:#eef2f8;outline:1px solid #c9d6e8}
 table{border-collapse:collapse;width:100%;background:#fff;font-size:.86em;margin:14px 0}
-th,td{border:1px solid #ddd;padding:7px 8px;text-align:right}
-th{background:#f0f2f5;cursor:pointer;user-select:none}th.nosort{cursor:default}
+th,td{border:1px solid var(--line);padding:7px 8px;text-align:right}
+th{background:#eef2f8;color:var(--deep);cursor:pointer;user-select:none}th.nosort{cursor:default}
 td:first-child,th:first-child{text-align:left}
 tr:hover td{background:#f7f9fc}
-.delta{color:#2e7d4f}.neg{color:#b3261e}.small{font-size:.85em;color:#555}
-.foot{font-size:.82em;color:#555;background:#fff;border-left:4px solid #d9a441;padding:8px 12px;margin:12px 0}
+tr.statewide td{background:#eef2f8;font-weight:600}
+.delta{color:#2e7d4f}.neg{color:var(--crimson)}.small{font-size:.85em;color:var(--muted)}
+.foot{font-size:.84em;color:#444;background:#fff;border-left:4px solid var(--crimson);padding:10px 14px;margin:14px 0;line-height:1.6}
 .tag{display:inline-block;font-size:.78em;font-weight:600;border-radius:4px;padding:1px 6px;margin-right:4px}
 .tag.flip{background:#fde8e8;color:#8c1d1d}.tag.close{background:#fff3cd;color:#7a5b00}
 .tag.change{background:#e2ecff;color:#1d3f8c}.tag.could{background:#e6f4ea;color:#1e6b34}
-.tag.expected{background:#1e6b34;color:#fff}.tag.final{background:#e6f4ea;color:#1e6b34}
+.tag.expected{background:#1e6b34;color:#fff}
+.tag.final{background:#e6f4ea;color:#1e6b34}
 .filters{margin:10px 0;font-size:.92em}.filters select,.filters input{font-size:.95em;padding:4px 6px;margin-right:10px}
 .hist{font-size:.82em;color:#555;background:#f4f6f8;padding:8px 10px}
 .hist td{border:none;text-align:right;padding:2px 6px}
-button.exp{background:none;border:none;color:#0b5fff;cursor:pointer;font-size:1em;padding:0}
+button.exp{background:none;border:none;color:var(--navy);cursor:pointer;font-size:1em;padding:0}
 .charts{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;margin:10px 0}
-.chartbox{background:#fff;border:1px solid #ddd;border-radius:8px;padding:14px 16px}
+.chartbox{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 .chartbox h3{margin:0 0 8px;font-size:1em}
 .legend{font-size:.86em;line-height:1.75}
 .sw{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.take{font-size:.92em;color:#333;background:#fff;border-left:4px solid #2471a3;padding:8px 12px;margin:10px 0}
-.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
-.statcard{border:1px solid #ddd;border-radius:8px;padding:14px 16px;background:#fff}
-.statcard .k{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#666}
-.statcard .v{font-size:1.6em;font-weight:700;margin-top:2px}
-.statcard .d{font-size:13px;color:#555;margin-top:2px}
-.cdrow{display:flex;justify-content:space-between;gap:10px;padding:2px 8px;border-radius:4px;font-size:14px}
-.cdrow.sel{background:#eef2f8;outline:1px solid #c9d6e8}
-.map{position:relative;height:520px;border:1px solid #ddd;border-radius:8px;margin:12px 0;z-index:1}
+.take{font-size:.92em;color:#333;background:#fff;border-left:4px solid var(--navy);padding:8px 12px;margin:10px 0}
+.map{position:relative;height:520px;border:1px solid var(--line);border-radius:10px;margin:12px 0;z-index:1}
 .map-sm{height:420px}
 .map-votes{max-width:560px;height:680px;margin:12px auto}
-.map-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#666;background:#f4f6f8;font-size:14px;z-index:500;pointer-events:none;border-radius:8px}
+.map-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#666;background:#f4f6f8;font-size:14px;z-index:500;pointer-events:none;border-radius:10px}
 .chart-tip{position:fixed;display:none;pointer-events:none;background:#1b2432;color:#fff;padding:6px 10px;border-radius:6px;font-size:13px;line-height:1.4;z-index:1000;max-width:340px;box-shadow:0 2px 10px rgba(0,0,0,.3)}
-.map-legend{font-size:13px;color:#666;margin:4px 0 14px}
-@media(max-width:820px){.statgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.statgrid{grid-template-columns:1fr}.map-votes{height:520px}}
-</style></head><body>
-<h1>Utah 2026 General — Closest Legislative Contests</h1><nav><a href="counties.html">All Counties</a><a href="races.html">Closest Races</a><a href="cds.html">Congressional Districts</a><a href="cds-party.html">Party &amp; Vote Choice</a><a href="district-stats.html">District Stats</a><a href="votes.html">Votes</a><a href="canvass.html">Canvass</a></nav>
+.map-legend{font-size:13px;color:var(--muted);margin:4px 0 14px}
+.map-legend .sw{width:14px;height:14px}
+.tabs{display:flex;gap:6px;margin:12px 0 0}
+.tabs button{font-family:inherit;font-size:14px;font-weight:600;padding:8px 16px;border:1px solid var(--line);border-bottom:none;border-radius:8px 8px 0 0;background:#f4f6f8;color:var(--muted);cursor:pointer}
+.tabs button.on{background:#fff;color:var(--deep);border-bottom:1px solid #fff;margin-bottom:-1px}
+footer{background:var(--deep);color:rgba(255,255,255,.75);padding:28px 0;font-size:13.5px;margin-top:40px;line-height:1.6}
+footer a{color:#fff}
+footer .meth{max-width:1180px;margin:0 auto;padding:0 20px 12px}
+@media(max-width:820px){.statgrid{grid-template-columns:1fr 1fr}.statgrid.six{grid-template-columns:1fr 1fr}.logo{height:52px}.product{font-size:20px}.menu{min-width:280px}}
+@media(max-width:560px){.statgrid{grid-template-columns:1fr}.statgrid.six{grid-template-columns:1fr}.map-votes{height:520px}}
+</style><script>
+let sortCol=-1, sortAsc=true;
+function sortTable(id, col, numeric){
+  const t=document.getElementById(id), tb=t.tBodies[0];
+  const rows=[...tb.querySelectorAll('tr.data')];
+  if(sortCol===col){sortAsc=!sortAsc}else{sortCol=col;sortAsc=true}
+  rows.sort((a,b)=>{
+    let x=a.cells[col].dataset.v ?? a.cells[col].textContent.trim();
+    let y=b.cells[col].dataset.v ?? b.cells[col].textContent.trim();
+    if(numeric){x=parseFloat(x);y=parseFloat(y);if(isNaN(x))x=-1;if(isNaN(y))y=-1}
+    return (x<y?-1:x>y?1:0)*(sortAsc?1:-1);
+  });
+  rows.forEach(r=>tb.appendChild(r));
+  rows.forEach(r=>{
+    const h=document.getElementById('hist-'+r.dataset.k);
+    if(h) tb.appendChild(h);
+  });
+}
+</script></head><body><header><div class="wrap topbar"><div><h1 class="product"><a href="index.html" style="color:inherit;text-decoration:none">Political Data</a></h1><div class="product-sub">Utah Ballot Count Tracker &middot; 2026 General Election</div></div></div><div class="navstrip"><div class="wrap"><nav><a href="ballot-tracker.html">Overview</a><a href="counties.html">Counties</a><a href="district-stats.html">Districts</a><a href="races.html" class="active">Races</a><a href="cds.html">Congress</a><a href="cds-party.html">Party & Vote Choice</a><a href="votes.html">Votes</a><a href="canvass.html">Canvass</a></nav></div></div></header><main class="wrap">
 <div class="sub">Closest Utah State House &amp; Senate contests, from the state All-Results reports. Updated as of Tue Nov 17, 2026, 1:46 PM MST (state results) &middot; checked Tue Nov 17, 2026, 2:12 PM MST &middot; 63 releases (Nov 3&ndash;11), including two recovered county snapshots and one county-canvass release (Nov 11, Millard +3 and Cache +8 ballots from over/under votes — no candidate votes changed). Click a column header to sort; use the filters to narrow the list. Click &#9656; on a row to see each release since election night &mdash; which county reported, how many votes that release added to the contest, and each candidate&rsquo;s share of those votes. Release times are the state&rsquo;s publish times where recorded; earlier releases without a recorded publish time are labeled by when this tracker first captured the file. The state&rsquo;s first publish on Nov 3, 8:07pm contained no counted votes; the earliest county results shown are Utah County as of 11:19pm, and the first statewide results are 12:23am.</div>
 <div class="filters">
 <label>Chamber <select id="f-chamber" onchange="applyFilters()"><option value="">All</option><option>House</option><option>Senate</option></select></label>
@@ -172,24 +229,15 @@ function applyFilters(){
 }
 applyFilters();
 </script>
-
-<script>
-let sortCol=-1, sortAsc=true;
-function sortTable(id, col, numeric){
-  const t=document.getElementById(id), tb=t.tBodies[0];
-  const rows=[...tb.querySelectorAll('tr.data')];
-  if(sortCol===col){sortAsc=!sortAsc}else{sortCol=col;sortAsc=true}
-  rows.sort((a,b)=>{
-    let x=a.cells[col].dataset.v ?? a.cells[col].textContent.trim();
-    let y=b.cells[col].dataset.v ?? b.cells[col].textContent.trim();
-    if(numeric){x=parseFloat(x);y=parseFloat(y);if(isNaN(x))x=-1;if(isNaN(y))y=-1}
-    return (x<y?-1:x>y?1:0)*(sortAsc?1:-1);
-  });
-  rows.forEach(r=>tb.appendChild(r));
-  // keep history rows glued to their county row
-  rows.forEach(r=>{
-    const h=document.getElementById('hist-'+r.dataset.k);
-    if(h) tb.appendChild(h);
-  });
-}
+</main><footer><div class="meth">Sources: Utah Lieutenant Governor&rsquo;s election results (electionresults.utah.gov) &mdash; state All-Results reports and county Ballot Statistics reports; county clerk reconciliation pages; the State Dashboard (November 2026) for registration. District boundaries: Utah Geospatial Resource Center (AGRC). All figures are unofficial until canvassed. This tracker is not affiliated with the State of Utah or any county.</div><div class="wrap">&copy; 2026 Utah Political Data Hub &middot; Political data &amp; intelligence</div></footer><script>
+(function(){
+  var dd=document.getElementById('dashDrop'); if(!dd) return;
+  var btn=dd.querySelector('.dropbtn');
+  function close(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(e){e.stopPropagation();var o=dd.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
+  dd.addEventListener('mouseenter',function(){dd.classList.add('open');btn.setAttribute('aria-expanded','true');});
+  dd.addEventListener('mouseleave',close);
+  document.addEventListener('click',function(e){if(!dd.contains(e.target))close();});
+  dd.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',close);});
+})();
 </script></body></html>
