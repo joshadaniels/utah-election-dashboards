@@ -1,73 +1,125 @@
-<!DOCTYPE html><html><head><meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Utah Election Results Dashboards</title><style>
-body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;max-width:1180px;margin:24px auto;padding:0 16px;color:#1c1c1c;background:#fafafa}
-h1{font-size:1.5em;margin-bottom:2px}.sub{color:#666;font-size:.9em;margin-bottom:16px}
-nav{margin:0 0 18px;font-size:.92em}nav a{color:#0b5fff;text-decoration:none;margin-right:16px}nav a:hover{text-decoration:underline}nav b{margin-right:16px}
-table{border-collapse:collapse;width:100%;background:#fff;font-size:.86em;margin:14px 0}
-th,td{border:1px solid #ddd;padding:7px 8px;text-align:right}
-th{background:#f0f2f5;cursor:pointer;user-select:none}th.nosort{cursor:default}
-td:first-child,th:first-child{text-align:left}
-tr:hover td{background:#f7f9fc}
-.delta{color:#2e7d4f}.neg{color:#b3261e}.small{font-size:.85em;color:#555}
-.foot{font-size:.82em;color:#555;background:#fff;border-left:4px solid #d9a441;padding:8px 12px;margin:12px 0}
-.tag{display:inline-block;font-size:.78em;font-weight:600;border-radius:4px;padding:1px 6px;margin-right:4px}
-.tag.flip{background:#fde8e8;color:#8c1d1d}.tag.close{background:#fff3cd;color:#7a5b00}
-.tag.change{background:#e2ecff;color:#1d3f8c}.tag.could{background:#e6f4ea;color:#1e6b34}
-.tag.expected{background:#1e6b34;color:#fff}.tag.final{background:#e6f4ea;color:#1e6b34}
-.filters{margin:10px 0;font-size:.92em}.filters select,.filters input{font-size:.95em;padding:4px 6px;margin-right:10px}
-.hist{font-size:.82em;color:#555;background:#f4f6f8;padding:8px 10px}
-.hist td{border:none;text-align:right;padding:2px 6px}
-button.exp{background:none;border:none;color:#0b5fff;cursor:pointer;font-size:1em;padding:0}
-.charts{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;margin:10px 0}
-.chartbox{background:#fff;border:1px solid #ddd;border-radius:8px;padding:14px 16px}
-.chartbox h3{margin:0 0 8px;font-size:1em}
-.legend{font-size:.86em;line-height:1.75}
-.sw{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.take{font-size:.92em;color:#333;background:#fff;border-left:4px solid #2471a3;padding:8px 12px;margin:10px 0}
-.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
-.statcard{border:1px solid #ddd;border-radius:8px;padding:14px 16px;background:#fff}
-.statcard .k{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#666}
-.statcard .v{font-size:1.6em;font-weight:700;margin-top:2px}
-.statcard .d{font-size:13px;color:#555;margin-top:2px}
-.cdrow{display:flex;justify-content:space-between;gap:10px;padding:2px 8px;border-radius:4px;font-size:14px}
-.cdrow.sel{background:#eef2f8;outline:1px solid #c9d6e8}
-.map{position:relative;height:520px;border:1px solid #ddd;border-radius:8px;margin:12px 0;z-index:1}
-.map-sm{height:420px}
-.map-votes{max-width:560px;height:680px;margin:12px auto}
-.map-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#666;background:#f4f6f8;font-size:14px;z-index:500;pointer-events:none;border-radius:8px}
-.chart-tip{position:fixed;display:none;pointer-events:none;background:#1b2432;color:#fff;padding:6px 10px;border-radius:6px;font-size:13px;line-height:1.4;z-index:1000;max-width:340px;box-shadow:0 2px 10px rgba(0,0,0,.3)}
-.map-legend{font-size:13px;color:#666;margin:4px 0 14px}
-@media(max-width:820px){.statgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.statgrid{grid-template-columns:1fr}.map-votes{height:520px}}
-</style></head><body>
-<h1>Utah Election Results Dashboards</h1>
-<p class="sub">Unofficial tracking dashboards built from Utah&rsquo;s official election results. Updated as of Tue Nov 17, 2026, 1:46 PM MST (state results) &middot; checked Tue Nov 17, 2026, 2:12 PM MST.</p>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="ut-ballot-count-tracker.html" style="color:#0b5fff;text-decoration:none">Utah 2026 General &mdash; Ballot Counting Progress</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">Ballots counted in the official results report &mdash; statewide total, top 5 counties, CD4, SD11, and HD61 &mdash; with a column for each results release and an estimate of ballots yet to report.</p></div>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="counties.html" style="color:#0b5fff;text-decoration:none">All Counties &mdash; Ballots &amp; Outstanding Estimates</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">All 29 Utah counties, sortable: ballots in results, change since the last release, estimated ballots left to report, and turnout. Expand any county to see its count at only the releases where it changed.</p></div>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="races.html" style="color:#0b5fff;text-decoration:none">Closest Legislative Contests</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">Closest Utah State House &amp; Senate contests, sortable and filterable: leader and margin now vs the first report, margin change over updates, and flags for party flips, leader changes, and contests that could still flip on outstanding ballots.</p></div>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="cds.html" style="color:#0b5fff;text-decoration:none">Congressional Districts</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">Utah&rsquo;s four congressional districts: a statewide summary, a per-district table (registered voters, ballots in results, estimated ballots left to report, turnout), and the four U.S. House contests with margins and could-still-flip flags.</p></div>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="cds-party.html" style="color:#0b5fff;text-decoration:none">Party &amp; Vote Choice by Congressional District</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">For each congressional district: who is registered there (Republican / Democratic / Unaffiliated / Other) vs how the district actually voted &mdash; registration barometers side by side with vote-share pies, and a table comparing each party&rsquo;s registration share with its candidate&rsquo;s vote share.</p></div>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="district-stats.html" style="color:#0b5fff;text-decoration:none">District Stats</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">Every State House, State Senate, and U.S. House district in one sortable table: registered voters by party, the current R-vs-D vote split, and GOP vote strength in 2024.</p></div>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="votes.html" style="color:#0b5fff;text-decoration:none">Votes &mdash; How the Counted Ballots Voted</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">From the counties&rsquo; cast-vote records (partial coverage): filter by geography, by partisan vote choice, and by the contest that choice was made in, and see how those same ballots voted in each contest and on Amendment B.</p></div>
-<div class="card" style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px 22px;margin-bottom:16px">
-<h2 style="margin:0 0 6px;font-size:19px"><a href="canvass.html" style="color:#0b5fff;text-decoration:none">Canvass &mdash; Official County Reconciliation</a></h2>
-<p style="margin:0;color:#444;line-height:1.5">Canvass statistics from the counties&rsquo; Standardized Canvass Statistics Reports (27 of 29 counties posted): ballots counted, vote histories, provisionals, and rejections, with a per-county table. Canvass figures are the authoritative final numbers for canvassed counties.</p></div>
-<footer style="font-size:13px;color:#777;margin-top:32px;line-height:1.5">
-Data source: Utah Lieutenant Governor&rsquo;s election results site (electionresults.utah.gov) and county clerk reconciliation pages.
-These dashboards are unofficial and not affiliated with the State of Utah or any county. Results are unofficial until canvassed.
-</footer></body></html>
+<title>Utah Political Data Hub — Political Data &amp; Intelligence</title>
+<meta name="description" content="Political data and intelligence for Utah: live ballot counting, contest results, and vote patterns from official state sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crimson:#9A1220; --navy:#265289; --deep:#022553;
+  --ink:#1b2432; --muted:#5b6572; --line:#e3e6ea; --card:#f7f8fa;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+a{color:var(--navy)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:#fff}
+.topbar{display:flex;align-items:center;gap:18px;padding:16px 0}
+.logo{height:72px;width:auto;display:block}
+.vdiv{width:1px;height:46px;background:var(--line);flex:0 0 auto}
+.product{font-family:Cinzel,Georgia,serif;font-size:26px;line-height:1.1;margin:0;font-weight:600;color:var(--deep)}
+.navstrip{background:var(--deep)}
+nav{display:flex;gap:4px;padding:8px 0;align-items:center}
+nav a,.dropbtn{color:#fff;text-decoration:none;font-size:14px;font-weight:500;padding:8px 12px;border-radius:6px;background:none;border:0;cursor:pointer;font-family:inherit}
+nav a:hover,.dropbtn:hover{background:rgba(255,255,255,.12)}
+.dropdown{position:relative}
+.menu{display:none;position:absolute;left:0;top:100%;min-width:340px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 32px rgba(2,37,83,.18);padding:8px;z-index:20}
+.dropdown.open .menu{display:block}
+.menu a{display:flex;justify-content:space-between;gap:16px;color:var(--ink);padding:10px 12px;border-radius:8px}
+.menu a:hover{background:var(--card)}
+.menu .st{font-size:12px;color:var(--muted);white-space:nowrap}
+.menu .st.live{color:var(--crimson);font-weight:600}
+.hero{padding:44px 0 8px}
+.hero h2{font-family:Cinzel,Georgia,serif;font-size:40px;line-height:1.15;margin:0 0 12px;font-weight:600}
+.rule{width:64px;height:4px;background:var(--crimson);border:0;margin:0 0 16px}
+.hero p{font-size:18px;color:var(--muted);max-width:640px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:36px 0}
+.card{border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff}
+.card h3{font-size:19px;margin:10px 0 8px}
+.card p{font-size:14.5px;color:var(--muted);margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.badge.live{background:var(--crimson);color:#fff}
+.badge.soon{background:#eef2f8;color:var(--navy)}
+.badge.planned{background:#f1f1f1;color:var(--muted)}
+section.block{padding:8px 0 36px}
+section.block h2{font-family:Cinzel,Georgia,serif;font-size:26px;margin:0 0 10px}
+section.block p{color:var(--muted);max-width:720px}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.principles div{border-top:3px solid var(--crimson);padding-top:12px}
+.principles h4{margin:0 0 6px;font-size:15px}
+.principles p{font-size:14px;margin:0}
+footer{background:var(--deep);color:rgba(255,255,255,.75);padding:28px 0;font-size:13.5px}
+footer a{color:#fff}
+@media(max-width:820px){.grid,.principles{grid-template-columns:1fr 1fr}.hero h2{font-size:32px}}
+@media(max-width:560px){.grid,.principles{grid-template-columns:1fr}.logo{height:52px}.product{font-size:20px}.menu{min-width:280px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <h1 class="product">Political Data</h1>
+  </div>
+  <div class="navstrip">
+    <div class="wrap">
+      <nav>
+        <div class="dropdown" id="dashDrop">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Dashboards ▾</button>
+          <div class="menu">
+            <a href="#early-vote"><span>Utah Early Vote Dashboard</span><span class="st">Coming soon</span></a>
+            <a href="#mail-map"><span>Utah Precinct Mail Map</span><span class="st">Coming soon</span></a>
+            <a href="#contest-monitor"><span>Utah Contest Monitor</span><span class="st">Coming soon</span></a>
+            <a href="ballot-tracker.html"><span>Utah Ballot Count Tracker</span><span class="st live">Live</span></a>
+          </div>
+        </div>
+        <a href="#methodology">Methodology</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h2>Political data &amp; intelligence for Utah.</h2>
+    <hr class="rule">
+    <p>One suite for how Utah votes, counts, and decides — early voting, precinct mail ballots, live ballot counting, and contest results. Every number traces to an official source.</p>
+  </div>
+  <div class="grid">
+    <div class="card" id="early-vote"><span class="badge soon">Coming soon</span><h3>Utah Early Vote Dashboard</h3><p>Mail returns and early voting by party and county, against 2022 and 2024 at the same point in the cycle — with honest, backtested projections.</p></div>
+    <div class="card" id="mail-map"><span class="badge soon">Coming soon</span><h3>Utah Precinct Mail Map</h3><p>Precinct-level mail-ballot returns across cycles. Utah's ~1,500 precincts, mapped — the layer nobody else has built for this state.</p></div>
+    <div class="card" id="contest-monitor"><span class="badge soon">Coming soon</span><h3>Utah Contest Monitor</h3><p>The closest contests with live margins, fundraising, and a 2024 baseline for every district. Built for people who have to decide where to spend.</p></div>
+    <div class="card" id="ballot-tracker"><span class="badge live">Live</span><h3><a href="ballot-tracker.html" style="color:inherit;text-decoration:none">Utah Ballot Count Tracker</a></h3><p>Live ballot counting through canvass, with per-release history for all 29 counties and the contests that decide control. <a href="ballot-tracker.html">Open the tracker &rarr;</a></p><p class="small">Updated as of Tue Nov 17, 2026, 1:46 PM MST &middot; checked Tue Nov 17, 2026, 2:12 PM MST &middot; 27 of 29 counties posted</p></div>
+    <div class="card" id="outreach"><span class="badge planned">Planned</span><h3>Legislator &amp; Outreach Intelligence</h3><p>The roster, the contests, and the relationships — joined to results data so outreach starts from evidence, not guesswork.</p></div>
+  </div>
+  <section class="block" id="methodology">
+    <h2>How we work</h2>
+    <div class="principles">
+      <div><h4>Official sources first</h4><p>State and county figures are the anchor. County sums must equal statewide totals — every panel reconciles, or it doesn't ship.</p></div>
+      <div><h4>Compare like-for-like</h4><p>Comparison years are cut at the same days before Election Day, never the same calendar date.</p></div>
+      <div><h4>Projections wear a label</h4><p>Forecasts are marked experimental, published with their backtests, and never dressed up as results.</p></div>
+    </div>
+  </section>
+  <section class="block" id="about">
+    <h2>About</h2>
+    <p>Utah Political Data Hub publishes Utah election data — live ballot counting, contest results, and vote patterns — built from official state and county sources. Every number traces to an official source.</p>
+  </section>
+</main>
+<footer>
+  <div class="wrap">&copy; 2026 Utah Political Data Hub &middot; Political data &amp; intelligence</div>
+</footer>
+<script>
+(function(){
+  var dd=document.getElementById('dashDrop'),btn=dd.querySelector('.dropbtn');
+  function close(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(e){e.stopPropagation();var o=dd.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false');});
+  dd.addEventListener('mouseenter',function(){dd.classList.add('open');btn.setAttribute('aria-expanded','true');});
+  dd.addEventListener('mouseleave',close);
+  document.addEventListener('click',function(e){if(!dd.contains(e.target))close();});
+  dd.querySelectorAll('.menu a').forEach(function(a){a.addEventListener('click',close);});
+})();
+</script>
+</body>
+</html>
