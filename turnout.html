@@ -282,9 +282,10 @@ silently corrected. The material ones:</p>
 <tr><td>DQ-9</td><td>Cache 2026 general</td><td>Figures from the county Summary Results PDF, not the canvass statistics form; label differs from the other 27 counties.</td></tr>
 <tr><td>DQ-11</td><td>All pre-2012 rows</td><td>Pre-2012 registration likely includes inactive voters (see &ldquo;active vs total&rdquo; above).</td></tr>
 </tbody></table>
-<p class="small">One more cross-source difference, shown as published on both sides: the statewide
-2024 ballots-cast total is <b>1,529,139</b> in the state canvass aggregation but <b>1,525,885</b>
-in the UF Election Lab&rsquo;s VEP file (+3,254, 0.2%). Neither side is forced to agree; the VEP
+<p class="small">Two cross-source differences, shown as published on both sides: the statewide
+ballots-cast total is <b>1,529,139</b> in the state canvass but <b>1,525,885</b>
+in the UF Election Lab&rsquo;s VEP file for 2024 (3,254 apart, 0.2%), and <b>779,988</b> vs
+<b>784,988</b> for 1992 (5,000 apart, 0.6%). Neither side is forced to agree; the VEP
 rate uses the Lab&rsquo;s own numerator, and every other rate uses the canvass numerator. The VEP
 and VAP series also rest on different PEP vintages for 2020+ (VEP: Vintage 2020&ndash;2023; VAP:
 Vintage 2025) and differ by up to 1.9% on VAP &mdash; both are presented as published.</p>
@@ -537,7 +538,7 @@ function renderTable(){
   rs.forEach(r=>{
     const cvapTag=r[COL.cvapBas]==="modeled"?'<span class="tag modeled">modeled</span>':'<span class="tag census">census-est.</span>';
     const cvapCell=fmt(r[COL.cvap])+(r[COL.moe]!==null?" \u00b1 "+fmt(r[COL.moe]):"")
-      +'<span class="def">'+cvapTag+' '+esc(r[COL.cvapVin]||"")+'</span>';
+      +'<span class="def">'+cvapTag+' '+esc((r[COL.cvapVin]||"").replace(/^modeled: /i,""))+'</span>';
     const yearCell=r[COL.url]
       ?'<a href="'+esc(r[COL.url])+'" target="_blank" rel="noopener" title="'+esc(r[COL.doc]||"canvass document")+'">'+r[COL.year]+'</a>'
       :''+r[COL.year];
@@ -557,7 +558,8 @@ function renderTable(){
 }
 
 function noDataHTML(){
-  return '<div class="msgbox"><b>Primary data not yet collected for this county (v2).</b><br>'
+  const where=(S.geo===STATE)?"statewide":"for this county";
+  return '<div class="msgbox"><b>Primary data not yet collected '+where+' (v2).</b><br>'
    +'Primaries in v1 cover four counties only: Davis, Salt Lake, Utah, and Weber (1992\u20132024). '
    +'Choose one of those counties, or switch to General elections to see all 29 counties. '
    +'Primaries for the other 25 counties are planned for v2.</div>';
